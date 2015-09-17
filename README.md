@@ -2,20 +2,19 @@
 An archey script for OS X.
 
 ```
+                                                         User: yotpo
+                                                         Hostname: user.yotpo.com
+                                                         Distro: OS X 10.10.4
+   ##    ##  #######  ######## ########   #######        Kernel: Darwin
+    ##  ##  ##     ##    ##    ##     ## ##     ##       Uptime: 15:29  up 15 days,  6:13, 1 user, load averages: 1.83 1.99 2.04
+     ####   ##     ##    ##    ##     ## ##     ##       Shell: /bin/zsh
+      ##    ##     ##    ##    ########  ##     ##       Terminal: xterm iTerm.app
+      ##    ##     ##    ##    ##        ##     ##       Packages: 63
+      ##    ##     ##    ##    ##        ##     ##       CPU: Intel Core i5-4258U CPU @ 7.40GHz
+      ##     #######     ##    ##         #######        Memory: 8 GB
+                                                         Disk: 55%
+                                                         IP Address: 1.2.3.4
 
-                 ###
-               ####	                  User: jhann
-               ###                    Hostname: Hann
-       #######    #######             Distro: OS X 10.8.4
-     ######################           Kernel: Darwin
-    #####################             Uptime:  2:03
-    ####################              Shell: /bin/bash
-    ####################              Terminal: xterm
-    #####################             Packages: 70
-     ######################           CPU: Intel Core i5-3210M CPU @ 2.50GHz
-      ####################	          Memory: 8 GB
-        ################              Disk: 56%
-         ####     #####               IP Address: 192.168.0.2
 ```
 
 ##Table Of Contents
