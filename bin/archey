@@ -65,11 +65,7 @@ disk=$(df | head -2 | tail -1 | awk '{print $5}')
 # * or if we're forcing color
 if [[ ( -t 1  && "${opt_nocolor}" = f) || "${opt_force_color}" = t ]]
 then
-  RED=$(tput       setaf 1 2>/dev/null)
-  GREEN=$(tput     setaf 2 2>/dev/null)
-  YELLOW=$(tput    setaf 3 2>/dev/null)
   BLUE=$(tput      setaf 4 2>/dev/null)
-  PURPLE=$(tput    setaf 5 2>/dev/null)
   textColor=$(tput setaf 6 2>/dev/null)
   normal=$(tput    sgr0 2>/dev/null)
 fi
@@ -103,18 +99,17 @@ diskText="${textColor}Disk:${normal}"
 # as when run.
 echo -e "
 
-${GREEN#  }                 ###
-${GREEN#  }               ####                   $userText $user
-${GREEN#  }               ###                    $hostnameText $hostname
-${GREEN#  }       #######    #######             $distroText $distro
-${YELLOW# }     ######################           $kernelText $kernel
-${YELLOW# }    #####################             $uptimeText $uptime
-${RED#    }    ####################              $shellText $shell
-${RED#    }    ####################              $terminalText $terminal
-${RED#    }    #####################             $packagehandlerText $packagehandler
-${PURPLE# }     ######################           $cpuText $cpu
-${PURPLE# }      ####################            $memoryText $ram
-${BLUE#   }        ################              $diskText $disk
-${BLUE#   }         ####     #####               $ipText $ip${normal}
+${BLUE#   }                                                         $userText $user
+${BLUE#   }                                                         $hostnameText $hostname
+${BLUE#   }                                                         $distroText $distro
+${BLUE#   }   ##    ##  #######  ######## ########   #######        $kernelText $kernel
+${BLUE#   }    ##  ##  ##     ##    ##    ##     ## ##     ##       $uptimeText $uptime
+${BLUE#   }     ####   ##     ##    ##    ##     ## ##     ##       $shellText $shell
+${BLUE#   }      ##    ##     ##    ##    ########  ##     ##       $terminalText $terminal
+${BLUE#   }      ##    ##     ##    ##    ##        ##     ##       $packagehandlerText $packagehandler
+${BLUE#   }      ##    ##     ##    ##    ##        ##     ##       $cpuText $cpu
+${BLUE#   }      ##     #######     ##    ##         #######        $memoryText $ram
+${BLUE#   }                                                         $diskText $disk
+${BLUE#   }                                                         $ipText $ip${normal}
 
 "
