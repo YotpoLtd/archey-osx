@@ -51,6 +51,7 @@ uptime=$(uptime | sed 's/.*up \+\([^,]*\), .*/\1/')
 shell="$SHELL"
 terminal="$TERM ${TERM_PROGRAM//_/ }"
 cpu=$(sysctl -n machdep.cpu.brand_string)
+battery=$(ioreg -l | grep -i capacity | tr '\n' ' | ' | awk '{printf("%.2f%%", $10/$5 * 100)}')
 
 # removes (R) and (TM) from the CPU name so it fits in a standard 80 window
 cpu=$(echo "$cpu" | awk '$1=$1' | sed 's/([A-Z]\{1,2\})//g')
@@ -94,6 +95,7 @@ packagehandlerText="${textColor}Packages:${normal}"
 cpuText="${textColor}CPU:${normal}"
 memoryText="${textColor}Memory:${normal}"
 diskText="${textColor}Disk:${normal}"
+batteryText="${textColor}Battery:${normal}"
 
 # The ${foo#  } is a cheat so that it lines up here as well
 # as when run.
@@ -110,6 +112,7 @@ ${BLUE#   }      ##    ##     ##    ##    ##        ##     ##       $packagehand
 ${BLUE#   }      ##    ##     ##    ##    ##        ##     ##       $cpuText $cpu
 ${BLUE#   }      ##     #######     ##    ##         #######        $memoryText $ram
 ${BLUE#   }                                                         $diskText $disk
+${BLUE#   }                                                         $batteryText $battery
 ${BLUE#   }                                                         $ipText $ip${normal}
 
 "
