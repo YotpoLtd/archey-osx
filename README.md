@@ -32,7 +32,10 @@ The latest stable release is [1.4](https://github.com/obihann/archey-osx/archive
 To get started you will need [homebrew](http://brew.sh/) to manage packages such as Python, figlet, and cowsay. To install please run the following command:
 
 ```
-brew install archey
+brew tap yotpoLtd/yotpo
+cd /usr/local/Library/Taps/yotpoltd/homebrew-yotpo
+git remote set-url origin git@github.com:yotpoLtd/homebrew-yotpo.git
+brew install yotpo-archey
 ```
 
 ##Options
