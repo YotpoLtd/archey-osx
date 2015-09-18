@@ -76,6 +76,7 @@ case "${packager}" in
     packagehandler=$(brew list -1 | wc -l | awk '{print $1 }')
     ;;
   macports)
+    hash port 2>/dev/null || { echo >&2 "This option requires MapPorts, and you don't seem to have it."; exit 1; }
     packagehandler=$(port installed | wc -l | awk '{print $1 }')
     ;;
   *)
