@@ -16,7 +16,11 @@ for arg in "$@"
 do
   case "${arg}" in
     -m|--macports)
-      packager=macports
+      if command -v port >/dev/null; then
+        packager=macports
+      else
+        packager=none
+      fi
       ;;
     -b|--nocolor)
       opt_nocolor=t
@@ -76,7 +80,6 @@ case "${packager}" in
     packagehandler=$(brew list -1 | wc -l | awk '{print $1 }')
     ;;
   macports)
-    hash port 2>/dev/null || { echo >&2 "This option requires MapPorts, and you don't seem to have it."; exit 1; }
     packagehandler=$(port installed | wc -l | awk '{print $1 }')
     ;;
   *)
