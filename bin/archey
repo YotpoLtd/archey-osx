@@ -16,7 +16,11 @@ for arg in "$@"
 do
   case "${arg}" in
     -m|--macports)
-      packager=macports
+      if command -v port >/dev/null; then
+        packager=macports
+      else
+        packager=none
+      fi
       ;;
     -b|--nocolor)
       opt_nocolor=t
