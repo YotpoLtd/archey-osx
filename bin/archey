@@ -83,36 +83,41 @@ case "${packager}" in
     ;;
 esac
 
-userText="${textColor}User:${normal}"
-hostnameText="${textColor}Hostname:${normal}"
-distroText="${textColor}Distro:${normal}"
-kernelText="${textColor}Kernel:${normal}"
-uptimeText="${textColor}Uptime:${normal}"
-ipText="${textColor}IP Address:${normal}"
-shellText="${textColor}Shell:${normal}"
-terminalText="${textColor}Terminal:${normal}"
-packagehandlerText="${textColor}Packages:${normal}"
-cpuText="${textColor}CPU:${normal}"
-memoryText="${textColor}Memory:${normal}"
-diskText="${textColor}Disk:${normal}"
-batteryText="${textColor}Battery:${normal}"
+userText="${textColor}User:${normal} ${user}${normal}"
+hostnameText="${textColor}Hostname:${normal} ${hostname}${normal}"
+distroText="${textColor}Distro:${normal} ${distro}${normal}"
+kernelText="${textColor}Kernel:${normal} ${kernel}${normal}"
+uptimeText="${textColor}Uptime:${normal} ${uptime}${normal}"
+ipText="${textColor}IP Address:${normal} ${ip}${normal}"
+shellText="${textColor}Shell:${normal} ${shell}${normal}"
+terminalText="${textColor}Terminal:${normal} ${terminal}${normal}"
+packagehandlerText="${textColor}Packages:${normal} ${packagehandler}${normal}"
+cpuText="${textColor}CPU:${normal} ${cpu}${normal}"
+memoryText="${textColor}Memory:${normal} ${ram}${normal}"
+diskText="${textColor}Disk:${normal} ${disk}${normal}"
+batteryText="${textColor}Battery:${normal} ${battery}${normal}"
 
+if [ -a "${HOME}/.config/archey-logo" ]
+  then
+  source "${HOME}/.config/archey-logo"
+else
 # The ${foo#  } is a cheat so that it lines up here as well
 # as when run.
 echo -e "
 
-${BLUE#   }                                                         $userText $user
-${BLUE#   }                                                         $hostnameText $hostname
-${BLUE#   }                                                         $distroText $distro
-${BLUE#   }   ##    ##  #######  ######## ########   #######        $kernelText $kernel
-${BLUE#   }    ##  ##  ##     ##    ##    ##     ## ##     ##       $uptimeText $uptime
-${BLUE#   }     ####   ##     ##    ##    ##     ## ##     ##       $shellText $shell
-${BLUE#   }      ##    ##     ##    ##    ########  ##     ##       $terminalText $terminal
-${BLUE#   }      ##    ##     ##    ##    ##        ##     ##       $packagehandlerText $packagehandler
-${BLUE#   }      ##    ##     ##    ##    ##        ##     ##       $cpuText $cpu
-${BLUE#   }      ##     #######     ##    ##         #######        $memoryText $ram
-${BLUE#   }                                                         $diskText $disk
-${BLUE#   }                                                         $batteryText $battery
-${BLUE#   }                                                         $ipText $ip${normal}
-
+${BLUE#   }                                                         $userText
+${BLUE#   }                                                         $hostnameText
+${BLUE#   }                                                         $distroText
+${BLUE#   }   ##    ##  #######  ######## ########   #######        $kernelText
+${BLUE#   }    ##  ##  ##     ##    ##    ##     ## ##     ##       $uptimeText
+${BLUE#   }     ####   ##     ##    ##    ##     ## ##     ##       $shellText
+${BLUE#   }      ##    ##     ##    ##    ########  ##     ##       $terminalText
+${BLUE#   }      ##    ##     ##    ##    ##        ##     ##       $packagehandlerText
+${BLUE#   }      ##    ##     ##    ##    ##        ##     ##       $cpuText
+${BLUE#   }      ##     #######     ##    ##         #######        $memoryText
+${BLUE#   }                                                         $diskText
+${BLUE#   }                                                         $batteryText
+${BLUE#   }                                                         $ipText
+${normal}
 "
+fi
